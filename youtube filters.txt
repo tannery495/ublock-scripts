@@ -1,0 +1,54 @@
+! === YouTube Cleaner 2025 – Ultimate Ad-free & Distraction-free Experience ===
+! Maintained & optimized – December 2025
+
+! 1. HOME PAGE – Hide unwanted channels by channel ID or @handle
+youtube.com##ytd-browse[page-subtype="home"] ytd-rich-item-renderer:has(a[href^="/@badchannel"], a[href^="/channel/UCxxxxxxxxxxxxxxxxxxxxxx"])
+
+! 2. HOME PAGE – Hide videos by title keywords (case-insensitive partial or whole word)
+youtube.com##ytd-browse[page-subtype="home"] ytd-rich-item-renderer:has(#video-title[title*="clickbait"i],[title*="mrbeast"i],[title*="reacts"i],[title~="sponsored"i])
+
+! 3. SIDEBAR (related videos) – Hide by title
+youtube.com##ytd-watch-flexy ytd-compact-video-renderer:has(#video-title[title*="clickbait"i],[title*="reacts"i]), ytd-watch-flexy yt-lockup-view-model:has(#video-title[title*="clickbait"i])
+
+! 4. SIDEBAR – Hide by exact channel name (very reliable)
+youtube.com##ytd-watch-flexy ytd-compact-video-renderer:has(> div > yt-content-metadata-view-model span.ytd-channel-name:has-text(/^(Bad Channel Name|Another Bad One)$/)):upward(ytd-compact-video-renderer)
+
+! 5. MOBILE – Hide channels in feeds/search
+m.youtube.com##ytm-media-item:has(a.media-channel[href^="/@badchannel"], a.media-channel[href^="/channel/UCxxx"]):upward(ytm-media-item)
+
+! 6. COMPLETELY HIDE SHORTS EVERYWHERE (2025-proof)
+||youtube.com/shorts/
+youtube.com##[href^="/shorts/"], [overlay-style="SHORTS"], [is-shorts]
+youtube.com##ytd-reel-shelf-renderer, ytd-rich-section-renderer[is-shorts], ytd-grid-video-renderer[is-shorts]
+youtube.com##ytd-guide-entry-renderer[title="Shorts"], ytd-mini-guide-entry-renderer[title="Shorts"]
+youtube.com##[tab-title="Shorts"]
+m.youtube.com##ytm-reel-shelf-renderer, ytm-pivot-bar-item-renderer[is-shorts], ytm-video-with-context-renderer[data-style="SHORTS"]
+
+! 7. SEARCH RESULTS – Remove Shorts, Live, Channels, Playlists (keep only normal videos)
+youtube.com##ytd-search ytd-item-section-renderer > #contents > :is(
+  ytd-video-renderer:has([overlay-style="SHORTS"],[href^="/shorts/"]),
+  ytd-reel-item-renderer,
+  ytd-channel-renderer,
+  ytd-playlist-renderer,
+  ytd-radio-renderer,
+  ytd-vertical-list-renderer
+):not(ytd-video-renderer)
+
+! 8. OPTIONAL: Completely empty homepage (nuclear option – only subscriptions button remains)
+! youtube.com##ytd-browse[page-subtype="home"] #contents > ytd-rich-grid-renderer > #contents
+
+! 9. OPTIONAL: Remove entire sidebar on video pages (pure focus mode)
+! youtube.com##ytd-watch-flexy #secondary
+
+! 10. Clean up useless UI clutter
+youtube.com##ytd-guide-signin-promo-renderer
+youtube.com##ytd-mealbar-promo-renderer
+youtube.com##yt-masthead-notifications-button
+youtube.com##.ytd-topbar-logo-renderer, #country-code
+youtube.com##ytd-topbar-menu-button-renderer:has(#avatar-btn)  ! Hides profile button if you want
+youtube.com##ytd-masthead #end > tp-yt-paper-button#notifications  ! Notification bell
+
+! 11. Remove "Up next" autoplay panel, teasers, end cards, etc.
+youtube.com##ytd-watch-next-secondary-results-renderer
+youtube.com##ytd-player ytd-engagement-panel-title-header-renderer
+youtube.com##ytd-video-description-infocards-section-renderer
