@@ -130,6 +130,57 @@
 # Hide "1080p Premium" in the video quality menu
   youtube.com##.ytp-quality-menu .ytp-menuitem:has(.ytp-premium-label
 
+# Hide login in homepage
+www.youtube.com##ytd-guide-signin-promo-renderer.ytd-guide-renderer.style-scope
 
+! --- Sidebar (Guide) Cleanup ---
+! Removes the "Sign in to like/subscribe" promo at the top of the sidebar
+www.youtube.com##ytd-guide-signin-promo-renderer.ytd-guide-renderer.style-scope
+
+! Removes big section blocks in the sidebar (Explore, Subscriptions header, etc.)
+www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(2)
+www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(3)
+www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(4)
+www.youtube.com##ytd-guide-section-renderer.ytd-guide-renderer.style-scope:nth-of-type(5)
+
+! Hides the primary and secondary link sections at the bottom of the sidebar (About, Press, Terms, etc.)
+www.youtube.com###guide-links-primary
+www.youtube.com###guide-links-secondary
+www.youtube.com###copyright
+
+! Completely hides the hamburger menu button (top-left guide toggle)
+www.youtube.com###guide-button
+
+! Hides mini sidebar entries when sidebar is collapsed (YouTube logo + icons)
+www.youtube.com##.ytd-mini-guide-entry-renderer.style-scope.yt-simple-endpoint
+
+! --- Top Bar / Masthead Cleanup ---
+! Hides the entire right side of the top bar (notifications, profile, etc.) – keeps only search + logo
+www.youtube.com###end > .ytd-masthead.style-scope
+
+! Removes voice search button (microphone icon on the right of search bar)
+www.youtube.com###voice-search-button > .ytd-masthead.style-scope > yt-button-shape
+
+! --- Chip Bar (Topics under search results) ---
+! Removes the whole chip row ("All", "Music", "Gaming", etc.)
+www.youtube.com###container > .yt-chip-cloud-renderer.style-scope
+
+! --- "About these results" button (appears under search sometimes) ---
+www.youtube.com###about-these-results > .ytd-search-header-renderer.style-scope > yt-button-shape > .yt-spec-button-shape-next--enable-backdrop-filter-experiment.yt-spec-button-shape-next--icon-trailing.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text.yt-spec-button-shape-next > .yt-spec-touch-feedback-shape--touch-response.yt-spec-touch-feedback-shape > .yt-spec-touch-feedback-shape__fill
+www.youtube.com###about-these-results > .ytd-search-header-renderer.style-scope > yt-button-shape > .yt-spec-button-shape-next--enable-backdrop-filter-experiment.yt-spec-button-shape-next--icon-trailing.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text.yt-spec-button-shape-next > .yt-spec-touch-feedback-shape--touch-response.yt-spec-touch-feedback-shape > .yt-spec-touch-feedback-shape__stroke
+
+! --- Homepage / Search Page Shelves (recommended sections) ---
+! Removes the first and second big horizontal "shelves" (e.g., "Breaking news", "Recommended channels", etc.)
+www.youtube.com##grid-shelf-view-model.ytGridShelfViewModelHostHasBottomButton.ytd-item-section-renderer.ytGridShelfViewModelHost:nth-of-type(1)
+www.youtube.com##grid-shelf-view-model.ytGridShelfViewModelHostHasBottomButton.ytd-item-section-renderer.ytGridShelfViewModelHost:nth-of-type(2)
+
+! Alternative selector for some shelf types (catches more variations)
+www.youtube.com##ytd-shelf-renderer.ytd-item-section-renderer.style-scope > .ytd-shelf-renderer.style-scope
+
+! --- Visual polish: removes ripple/animation overlays on some buttons ---
+! (These long selectors hide the colored ripple effect when clicking certain buttons – cleaner look)
+www.youtube.com##.yt-spec-button-shape-next--enable-backdrop-filter-experiment.yt-spec-button-shape-next--icon-only-default.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text.yt-spec-button-shape-next > .yt-spec-touch-feedback-shape--overlay-touch-response.yt-spec-touch-feedback-shape > .yt-spec-touch-feedback-shape__fill
+www.youtube.com##.yt-spec-button-shape-next--enable-backdrop-filter-experiment.yt-spec-button-shape-next--icon-leading.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--outline.yt-spec-button-shape-next > .yt-spec-touch-feedback-shape--overlay-touch-response.yt-spec-touch-feedback-shape > .yt-spec-touch-feedback-shape__fill
+www.youtube.com##.yt-spec-button-shape-next--enable-backdrop-filter-experiment.yt-spec-button-shape-next--icon-only-default.yt-spec-button-shape-next--size-m.yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text.yt-spec-button-shape-next > .yt-spec-touch-feedback-shape--overlay-touch-response.yt-spec-touch-feedback-shape > .yt-spec-touch-feedback-shape__stroke
 
 
