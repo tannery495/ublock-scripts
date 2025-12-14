@@ -1,3 +1,5 @@
+# youtube filters
+
 ! === Suggested / Recommended Videos ===
 ! Hide entire homepage recommendations (blank home page - go directly to subscriptions or search)
 www.youtube.com##ytd-browse[page-subtype="home"] #contents
